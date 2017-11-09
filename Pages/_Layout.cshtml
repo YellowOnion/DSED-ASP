@@ -8,21 +8,22 @@
     <environment include="Development">
       <!--  <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" /> -->
         <link rel="stylesheet" href="~/css/site.css" />
-        <link rel="stylesheet" href="~/material-components-web/dist/material-components-web.css" />
+        <link rel="stylesheet" href="~/lib/material-design-lite/material.css" />
     </environment>
     <environment exclude="Development">
      <!--   <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" /> -->
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
-        <link rel="stylesheet" href="~/material-components-web/dist/material-components-web.min.css" />
+        <link rel="stylesheet" href="~/lib/material-design-lite/material.min.css" />
     </environment>
 </head>
-<body>
-    <header class="mdc-toolbar mdc-toolbar--fixed mdc-toolbar--platform">
-    <div class="mdc-toolbar__row">
-        <h1 class="mdc-toolbar__title">DSEDRazor</h1>
-        <nav id="basic-tab-bar" class="mdc-tab-bar mdc-tab-bar--indicator-accent">
+<body style="padding: 0">
+    <div class="mdl-layout mdl-js-layout">
+    <header class="mdl-layout__header mdl-shadow--16dp">
+    <div class="mdl-layout__header-row">
+        <h1 class="mdl-layout-title">DSEDRazor</h1>
+        <nav id="basic-tab-bar" class="mdl-navigation">
     <!--    <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -33,11 +34,11 @@
                 </button> 
                 <a asp-page="/Index" class="navbar-brand">DSEDRazor</a>
             </div> -->
-                    <a class="mdc-tab" asp-page="/Index">Home</a>
+                    <a class="mdl-navigation__link" asp-page="/Index">Home</a>
 
-                    <a class="mdc-tab" asp-page="/About">About</a>
-                    <a class="mdc-tab" asp-page="/Contact">Contact</a>
-                    <span class="mdc-tab-bar__indicator"></span>
+                    <a class="mdl-navigation__link" asp-page="/About">About</a>
+                    <a class="mdl-navigation__link" asp-page="/Contact">Contact</a>
+                    <span class="mdl-navigation__link"></span>
         </nav>
     </div>
     </header>
@@ -53,7 +54,7 @@
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
-        <script src="~/material-components-web/dist/material-components-web.js" ></script>
+        <script src="~/lib/material-design-lite/material.js" ></script>
     </environment>
     <environment exclude="Development">
         <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
@@ -69,10 +70,12 @@
                 integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
         </script>
         <script src="~/js/site.min.js" asp-append-version="true"></script>
-        <script src="~/material-components-web/dist/material-components-web.min.js" ></script>
+        <script src="~/lib/material-design-lite/material.min.js" ></script>
     </environment>
         <script>mdc.autoInit()</script>
 
     @RenderSection("Scripts", required: false)
+
+    </div>
 </body>
 </html>
