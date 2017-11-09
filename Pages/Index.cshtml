@@ -1,0 +1,34 @@
+﻿@page
+@model DSEDRazor.Pages.IndexModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div>
+    <h2>Customers</h2>
+    <form method="post">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Address</th>
+                    <th>Phone Num.</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var customer in Model.Customers)
+                {
+                    <tr>
+                        <td>@customer.FirstName</td>
+                        <td>@customer.LastName</td>
+                        <td>@customer.Address</td>
+                        <td>@customer.PhoneNumber</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </form>
+</div>

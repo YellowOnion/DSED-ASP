@@ -1,0 +1,19 @@
+@page
+@model DSEDRazor.Pages.CreateCustomer
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelper
+
+<html>
+    <body>
+        <p>
+            Enter Customer:
+            <div asp-validation-summary="All"></div>
+            <form method="POST">
+                <div>First Name: <input asp-for="Customer.FirstName" /></div>
+                <div>Last Name: <input asp-for="Customer.LastName" /></div>
+                <div>Address: <input asp-for="Customer.Address" /></div>
+                <div>Phone:  <input asp-for="Customer.PhoneNumber" /></div>
+                <input type="submit" />
+            </form>
+        </p>
+    </body>
+</html>
