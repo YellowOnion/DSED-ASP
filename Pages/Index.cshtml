@@ -7,27 +7,43 @@
 }
 
 <div>
-    <h2>Customers</h2>
-    <form method="post">
-        <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+    <h2>Customers <a asp-page="./AddCustomer" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--accent mdl-js-ripple-effect material-icons"><i class="material-icons">add</i></a></h2>
+    <form method="post" action="./AddCustomer">
+        <table class="mdl-data-table mdl-js-data-table mdl-shadow--4dp">
             <thead>
                 <tr>
                     <th class="mdl-data-table__cell--non-numeric">First Name</th>
                     <th class="mdl-data-table__cell--non-numeric">Last Name</th>
                     <th class="mdl-data-table__cell--non-numeric">Address</th>
                     <th>Phone Num.</th>
+                    <th class="mdl-data-table__cell--non-numeric"></th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var customer in Model.Customers)
                 {
                     <tr>
-                        <td class="mdl-data-table__cell--non-numeric">@customer.FirstName</td>
-                        <td class="mdl-data-table__cell--non-numeric">@customer.LastName</td>
+                        <td class="mdl-data-table__cell--non-numeric"><p>@customer.FirstName</p></td>
+                        <td class="mdl-data-table__cell--non-numeric"><p>@customer.LastName</p></td>
                         <td class="mdl-data-table__cell--non-numeric">@customer.Address</td>
-                        <td class="mdl-data-table__cell--non-numeric">@customer.PhoneNumber</td>
+                        <td>@customer.PhoneNumber</td>
+                        <td class="mdl-data-table__cell--non-numeric">
+                            <button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect material-icons">edit</button>
+                            <button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect material-icons">delete</button>
+                            </td>
+
                     </tr>
                 }
+                <tr>
+                        <td class="mdl-data-table__cell--non-numeric" data-firstname>FirstName</td>
+                        <td class="mdl-data-table__cell--non-numeric" data-lastname>LastName</td>
+                        <td class="mdl-data-table__cell--non-numeric" data-address>Address</td>
+                        <td data-phone>PhoneNumber</td>
+                        <td class="mdl-data-table__cell--non-numeric">
+                            <button type="button" class="mdl-button mdl-js-button mdl-js-ripple-effect material-icons" data-edit>edit</button>
+                            <button type="button" class="mdl-button mdl-js-button mdl-js-ripple-effect material-icons" data-delete>delete</button>
+                            </td>
+                </tr>
             </tbody>
         </table>
     </form>

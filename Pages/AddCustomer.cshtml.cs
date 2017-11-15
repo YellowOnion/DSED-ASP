@@ -5,11 +5,11 @@ using DSEDRazor.Data;
 
 namespace DSEDRazor.Pages
 {
-    public class CreateModel : PageModel
+    public class AddCustomerModel : PageModel
     {
         private readonly AppDbContext _db;
 
-        public CreateModel(AppDbContext db)
+        public AddCustomerModel(AppDbContext db)
         {
             _db = db;
         }

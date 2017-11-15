@@ -1,19 +1,28 @@
 @page
-@model DSEDRazor.Pages.CreateCustomer
+@model DSEDRazor.Pages.AddCustomerModel
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelper
 
-<html>
-    <body>
-        <p>
-            Enter Customer:
+            <h2> Enter Customer: </h2>
             <div asp-validation-summary="All"></div>
             <form method="POST">
-                <div>First Name: <input asp-for="Customer.FirstName" /></div>
-                <div>Last Name: <input asp-for="Customer.LastName" /></div>
-                <div>Address: <input asp-for="Customer.Address" /></div>
-                <div>Phone:  <input asp-for="Customer.PhoneNumber" /></div>
-                <input type="submit" />
+                <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-phone mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" asp-for="Customer.FirstName" id="firstName"/>
+                    <label class="mdl-textfield__label" for="firstName">First Name</label>
+                </div>
+
+                <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-phone mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" asp-for="Customer.LastName" id="lastName"/>
+                    <label class="mdl-textfield__label" for="lastName">Last Name</label>
+                </div>
+
+                <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-phone mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" asp-for="Customer.Address" id="addr" />
+                    <label class="mdl-textfield__label" for="addr">Address</label>
+                </div>
+
+                <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-phone mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="tel" asp-for="Customer.PhoneNumber" id="phone" />
+                    <label class="mdl-textfield__label" for="phone">Phone</label>
+                </div>
+                    <button type="submit" class="mdl-cell mdl-cell--1-col mdl-cell--4-col-phone mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Add</button>
             </form>
-        </p>
-    </body>
-</html>
