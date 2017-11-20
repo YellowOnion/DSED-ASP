@@ -24,7 +24,7 @@ namespace DSEDRazor
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<AppDbContext>(options =>
-                options.UseInMemoryDatabase("name"));
+                options.UseSqlite("Data Source=movies.db"));
             services.AddMvc();
         }
 
