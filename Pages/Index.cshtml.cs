@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using DSEDRazor.Data;
@@ -22,6 +23,16 @@ namespace DSEDRazor.Pages
             Customers = await _db.Customers.AsNoTracking().ToListAsync();            
         }
 
+        public async Task<IActionResult> OnPostAsync(int id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
+            HttpContext.Session.SetInt32("Customer", id);
+            
+            return RedirectToPage("./Movies");
+        }
         public async Task<IActionResult> OnPostDeleteAsync(int id)
         {
             var customer = await _db.Customers.FindAsync(id);

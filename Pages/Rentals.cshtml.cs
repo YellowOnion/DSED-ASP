@@ -9,24 +9,27 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DSEDRazor.Pages
 {
-    public class IndexModel : PageModel
+    public class RentalsModel : PageModel
     {
         private readonly AppDbContext _db;
 
-        public IndexModel(AppDbContext db) => _db = db;
+        public RentalsModel(AppDbContext db) => _db = db;
 
-        public IList<Customer> Customers {get; private set;}
+        public IList<RentedMovie> RentedMovies {get; private set;}
 
         public async Task OnGetAsync()
         {
-            Customers = await _db.Customers.AsNoTracking().ToListAsync();            
+            RentedMovies = await _db.RentedMovies.AsNoTracking()
+            .Include(a => a.Customer)
+            .Include(a => a.Movie)
+            .ToListAsync();            
         }
 
         public async Task<IActionResult> OnPostDeleteAsync(int id)
         {
-            var customer = await _db.Customers.FindAsync(id);
-            if (customer != null){
-                _db.Customers.Remove(customer);
+            var rental = await _db.RentedMovies.FindAsync(id);
+            if (rental != null){
+                _db.RentedMovies.Remove(rental);
                 await _db.SaveChangesAsync();
             }
 

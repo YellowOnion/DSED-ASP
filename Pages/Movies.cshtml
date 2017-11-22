@@ -1,5 +1,5 @@
 ﻿@page
-@model DSEDRazor.Pages.IndexModel
+@model DSEDRazor.Pages.MoviesModel
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 @{
@@ -11,21 +11,15 @@
         <table class="mdl-data-table mdl-js-data-table mdl-shadow--4dp">
             <thead>
                 <tr>
-                    <th class="mdl-data-table__cell--non-numeric">First Name</th>
-                    <th class="mdl-data-table__cell--non-numeric">Last Name</th>
-                    <th class="mdl-data-table__cell--non-numeric">Address</th>
-                    <th>Phone Num.</th>
+                    <th class="mdl-data-table__cell--non-numeric">Title</th>
                     <th class="mdl-data-table__cell--non-numeric"></th>
                 </tr>
             </thead>
             <tbody>
-                @foreach (var customer in Model.Customers)
+                @foreach (var movie in Model.Movies)
                 {
                     <tr>
-                        <td class="mdl-data-table__cell--non-numeric"><p>@customer.FirstName</p></td>
-                        <td class="mdl-data-table__cell--non-numeric"><p>@customer.LastName</p></td>
-                        <td class="mdl-data-table__cell--non-numeric">@customer.Address</td>
-                        <td>@customer.PhoneNumber</td>
+                        <td class="mdl-data-table__cell--non-numeric"><p>@movie.Title</p></td>
                         <td class="mdl-data-table__cell--non-numeric">
                             <button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect material-icons">edit</button>
                             <button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect material-icons">delete</button>

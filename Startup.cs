@@ -18,14 +18,22 @@ namespace DSEDRazor
             Configuration = configuration;
         }
 
+        public Startup(IHostingEnvironment appHost)
+        {
+            var builder = new ConfigurationBuilder().SetBasePath(appHost.ContentRootPath);
+            Console.WriteLine(appHost.ContentRootPath);
+        }
+
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<AppDbContext>(options =>
-                options.UseSqlite("Data Source=movies.db"));
-            services.AddMvc();
+                options.UseSqlite("Data Source=.\\movies.db"));
+            services.AddMvc().AddSessionStateTempDataProvider();
+
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,6 +56,8 @@ namespace DSEDRazor
                     name: "default",
                     template: "{controller}/{action=Index}/{id?}");
             });
+
+            app.UseSession();
         }
     }
 }
